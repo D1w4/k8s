@@ -1,0 +1,14 @@
+[Unit]
+Description=KubernetesDashboard
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/sbin/runuser -l root -c "sh /usr/local/bin/kubernetesDashboard.sh"
+Type=simple
+Restart=on-failure
+RestartSec=5s
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
