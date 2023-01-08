@@ -20,6 +20,13 @@ spec:
       containers:
       - image: wordpress:4.8-apache
         name: wordpress
+        resources:
+          requests:
+            memory: 100Mi
+            cpu: 250m
+          limits:
+            memory: 300Mi
+            cpu: 750m
         env:
         - name: WORDPRESS_DB_HOST
           #value: wordpress-mysql
@@ -29,13 +36,6 @@ spec:
             secretKeyRef:
               name: mysql-secret
               key: password
-        resources:
-          requests:
-            memory: 100Mi
-            cpu: 250m
-          limits:
-            memory: 300mi
-            cpu: 750m
         ports:
         - containerPort: 80
           name: wordpress
