@@ -38,3 +38,25 @@ kubectl apply -f https://raw.githubusercontent.com/diwa-19/k8s/main/wordpress-de
 9. create wordpress service ( included in deployment, u can skip )
 
 kubectl apply -f https://raw.githubusercontent.com/diwa-19/k8s/main/wordpress-service.yaml
+
+===
+
+Autoscale horizontal pod wordpress
+
+Tresshold CPU ( Auto Scale Up )
+
+kubectl autoscale deployment wordpress --cpu-percent=50 --min=1 --max=10
+
+===
+
+Autoscale horizontal pod wordpress
+
+Tresshold CPU Utilization ( Auto Scalling Up / Down ) - ScaleDown wait ( percentage < CPU Utilization (ex: 50%) ) + 300 Second
+
+kubectl apply -f https://raw.githubusercontent.com/diwa-19/k8s/main/hpa.yaml
+
+===
+
+Giving Load with busybox / stresstest ke website
+
+kubectl run -i --tty load-generator --rm --image=busybox --restart=Never -- /bin/sh -c "while sleep 0.01; do wget -q -O- http://10.21.19.161:82; done"
