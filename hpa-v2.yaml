@@ -1,5 +1,4 @@
 apiVersion: autoscaling/v2 HorizontalPodAutoscaler
-kind: HorizontalPodAutoscaler
 metadata:
   name: wordpress
 spec:
