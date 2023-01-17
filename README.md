@@ -67,4 +67,4 @@ kubectl apply -f https://raw.githubusercontent.com/diwa-19/k8s/main/hpa.yaml
 
 Giving Load with busybox / stresstest ke website
 
-kubectl run -i --tty load-generator --rm --image=busybox --restart=Never -- /bin/sh -c "while sleep 0.01; do wget -q -O- http://website; done"
+kubectl run -i --tty load-generator --rm --image=busybox --restart=Never -- /bin/sh -c "while sleep 0.03; do wget -q -O- http://website; done"
