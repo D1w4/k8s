@@ -5,7 +5,7 @@ https://github.com/pierangelo1982/kubernetes_2022/tree/main/03_wordpress_mysql_p
 
 1. start dashboard ( load balancer )
 
-curl -S https://raw.githubusercontent.com/diwa-19/k8s/main/starter-dashboard.sh | bash
+kubectl apply -f https://raw.githubusercontent.com/diwa-19/k8s/main/kubernetes-dashboard-2.6.1-loadbalancer.yaml
 
 2. create secret token / password mysql 
 
